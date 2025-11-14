@@ -1,18 +1,35 @@
 # -----------------------------------------------------------------------------
-# Harris Corner Detection and Clustering Interactive GUI Application
+# Harris Corner Detection and DBSCAN Clustering – Interactive GUI
 #
-# This script provides an interactive GUI for performing Harris Corner Detection
-# and clustering the detected corners using DBSCAN. A Canny edge detection and Hough Transform
-# should be applied before running this script to prepare the image and enhance corner detection.
-# The user can:
-# - Adjust parameters for Gaussian Blur, Harris Corner Detection, and DBSCAN clustering.
-# - Instantly preview the effect of parameter changes on the detected corners.
-# - See the number of detected points in real time.
-# - Save the result image with marked corners and a text file with the corner coordinates.
-# - View explanations for each parameter and the overall process in a dedicated panel.
+# This module provides the third stage of the ComputerVision pipeline used in the
+# automated total-station measurement workflow described in the associated paper.
 #
-# The GUI is implemented with Tkinter and ttkbootstrap for a modern look.
-# The script can be called from another script or run standalone.
+# The script opens an interactive Tk/ttkbootstrap GUI that allows:
+#   • Harris corner detection with adjustable parameters (Gaussian blur, blockSize,
+#     Sobel aperture, Harris k, response threshold)
+#   • Interactive DBSCAN clustering of detected corner points
+#   • Live preview of detected corners and real-time point counts
+#   • Saving of the final corner visualization and the cluster-averaged coordinates
+#
+# Prerequisites:
+#   • A Canny edge map and a Hough line-filtered image must already exist. This
+#     script expects an image that has gone through segmentation → Canny →
+#     Hough, as done in the full measurement workflow.
+#
+# Notes:
+#   • This script does *not* perform any segmentation, Canny detection or
+#     Hough transform on its own. It only processes the prepared image.
+#   • This is a standalone, device-independent CV tool. It does not interact
+#     with GeoCOM or any survey instrument.
+#   • When used together with the CV pipeline from the total-station workflow:
+#         – No object can be processed if the required training model or the
+#           unique physical measurement target is not available.
+#         – The CV pipeline cannot segment or localize objects outside that
+#           domain (the trained YOLO model is task-specific and non-general).
+#
+# Can be called directly or imported and used via:
+#       run_harris_gui_from_another_script(...)
+#
 # -----------------------------------------------------------------------------
 
 
@@ -568,4 +585,5 @@ def main():
     print(f"Output text file saved at: {output_txt}")
 
 if __name__ == "__main__":
+
     main()
