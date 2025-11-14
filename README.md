@@ -1,6 +1,8 @@
 # Automated Object Measurement with a Total Station Using Instance Segmentation
 This project accompanies the master's thesis *"Automated Object Measurement with a Total Station Using Instance Segmentation"*.
 
+[![Video ansehen](https://img.youtube.com/vi/https://www.youtube.com/watch?v=xHrBriSdfJM/0.jpg)](https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=xHrBriSdfJM)
+
 ## Repository Contents
 
 This repository contains four Python scripts:
