@@ -1,17 +1,26 @@
 # -----------------------------------------------------------------------------
-# Hough Line Transform Interactive GUI Application
+# Interactive Hough Line Transform (Post-Canny Processing)
 #
-# This script provides an interactive GUI for applying the progressive probabilistic 
-# Hough Line Transform to an image using OpenCV. A Canny edge detection had to be applied beforehand.
-# The user can:
-# - Adjust parameters such as rho (pixel resolution), theta (angle resolution),
-#   threshold (accumulator hits), minimum line length, and maximum line gap.
-# - Instantly preview the effect of parameter changes on the detected lines.
-# - Save the result image with detected lines overlaid.
-# - View explanations for each parameter and the overall process in a dedicated panel.
+# This module provides an interactive GUI for the progressive probabilistic
+# Hough Line Transform (PPHLT). It is the second script of the Computer Vision pipeline
+# used in the automated total-station measurement workflow described in the
+# associated publication.
 #
-# The GUI is implemented with Tkinter and ttkbootstrap for a modern look.
-# The script is designed to be called from another script or run standalone.
+# Context:
+# - This script expects a Canny-edge image as input. No edge computation is done
+#   here. The preceding segmentation + Canny step must provide a clean binary
+#   edge map.
+# - The segmentation step in the original workflow was based on a custom-trained
+#   YOLOv8 model and a unique physical object. Without access to that model and
+#   object, users cannot reproduce the same masks. Only the GUI logic presented
+#   here is reusable.
+#
+# Functionality:
+# - Adjustable PPHLT parameters: rho, theta, threshold, minLineLength, maxLineGap.
+# - Live preview while parameters change.
+# - Save function writing only the detected lines (no background) to disk.
+# - Standalone usage supported, but originally designed to be called from an
+#   external controller script.
 # -----------------------------------------------------------------------------
 
 
@@ -480,4 +489,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
