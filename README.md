@@ -29,7 +29,7 @@ Images from other scenes cannot be segmented without retraining a model.
 
 The pipeline consists of six main CV steps (a–f) and an optional measurement step:
 
-![Workflow](./assets/pipeline_workflow.jpg)
+![Workflow](./assets/computer_vision_pipeline.jpg)
 
 **(a)** Image Capture
 **(b)** Instance segmentation → Masked crop
