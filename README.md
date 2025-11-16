@@ -70,26 +70,27 @@ project/
 
 ## Scripts and Their Role in the Workflow
 
-### **1. `Object_Segmentation_and_Canny_Edge_Detection_App.py` (Steps a–c)**
+### **1. [`Object_Segmentation_and_Canny_Edge_Detection_App.py`](segmentation_and_canny/Object_Segmentation_and_Canny_Edge_Detection_App.py) (Steps a–c)**
 
 * Runs YOLOv8 instance segmentation
 * Crops the detected object (in this workflow the used steel beam)
 * Opens an interactive Canny GUI with manual + automatic methods
 * Saves cropped object and edges
 
-### **2. `Hough_Line_Transform_App.py` (Step d)**
+### **2. [`Hough_Line_Transform_App.py`](hough_transform/Hough_Line_Transform_App.py) (Step d)**
 
 * Interactive GUI for the Progressive probabilistic Hough Transform
 * Tunable parameters + live preview of detected lines
 * Saves a line-only image on black background
 
-### **3. `Harris_Corner_detection_and_DBSCAN_Clustering_App.py` (Step e)**
+### **3. [`Harris_Corner_detection_and_DBSCAN_Clustering_App.py`](harris_corner_detection/Harris_Corner_detection_and_DBSCAN_Clustering_APP.py) (Step e)**
 
 * Harris Corner Detection + DBSCAN clustering
 * Tunable parameters + live preview of detected corner clusters
 * Saves: visual output and list of final cluster centers (clustered object corners)
 
-### **4. `main_total_station_control.py`**
+### **4. [`main_total_station_control.py`](total_station_control/main_total_station_control.py)**
+
 
 * Central script intended to **control a total station** during the automated measurement workflow
 * Sequentially triggers all three CV modules (segmentation → Hough → Harris) and integrates their outputs into the measurement loop
