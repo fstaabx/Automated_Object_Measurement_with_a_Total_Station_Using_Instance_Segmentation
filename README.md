@@ -89,13 +89,12 @@ project/
 * Tunable parameters + live preview of detected corner clusters
 * Saves: visual output and list of final cluster centers (clustered object corners)
 
-### **4. `main_total_station_control.py` (Step f, optional)**
+### **4. `main_total_station_control.py` **
 
-* Public, cleaned structure of the automated total-station workflow
-* All **GeoCOM commands removed** due to licensing and confidentiality
-* Keeps the architecture to allow users to integrate their own device control
-* Workflow:
-  * image capture → segmentation → edges → lines → corners → (optionally) aim at corner
+* Central script intended to **control a total station** during the automated measurement workflow
+* Sequentially triggers all three CV modules (segmentation → Hough → Harris) and integrates their outputs into the measurement loop
+* **All GeoCOM commands removed**; placeholders indicate where users must insert their own device-specific total-station control
+* Preserves the original architecture so the full pipeline can be rebuilt on Leica instruments or adapted to other manufacturers
 
 ---
 
