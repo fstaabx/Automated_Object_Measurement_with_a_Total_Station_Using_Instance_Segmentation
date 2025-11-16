@@ -89,7 +89,7 @@ project/
 * Tunable parameters + live preview of detected corner clusters
 * Saves: visual output and list of final cluster centers (clustered object corners)
 
-### **4. `main_total_station_control.py` **
+### **4. `main_total_station_control.py`**
 
 * Central script intended to **control a total station** during the automated measurement workflow
 * Sequentially triggers all three CV modules (segmentation → Hough → Harris) and integrates their outputs into the measurement loop
