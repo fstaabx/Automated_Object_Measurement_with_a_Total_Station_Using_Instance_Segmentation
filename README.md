@@ -12,10 +12,10 @@ This repository contains the public version of the software prototype developed 
 The project evaluates whether a **Computer Vision (CV) pipeline** can support **automated object measurement with a total station**.
 It combines:
 
-* **YOLOv8 instance segmentation**
+* **YOLOv8 (Large) instance segmentation**
 * **Canny edge detection**
-* **Progressive probabilistic Hough line transform**
-* **Harris corner detection**
+* **Progressive probabilistic Hough line Transform**
+* **Harris Corner Detection**
 * **DBSCAN clustering**
 * **GeoCOM-based device control** of a Leica MS50 (all GeoCOM commands removed in this public version)
 
@@ -31,13 +31,13 @@ The pipeline consists of six main CV steps (a–f) and an optional measurement s
 
 ![Workflow](./assets/computer_vision_pipeline.jpg)
 
-**(a)** Image Capture
-**(b)** Instance segmentation → Masked crop
-**(c)** Canny edge detection
-**(d)** Hough line transform
-**(e)** Harris corner detection → DBSCAN clustering
-**(f)** Cluster centers transfer
-(Optional) Total station control via GeoCOM (GeoCOM commands not included in this repository, only schematic flowchart)
+**(a)** Example image after acquisition (e.g., from the total station).
+**(b)** Preprocessed image patch after segmentation, cropping, and masking.
+**(c)** Result of the Canny edge detection showing fragmented edge traces.
+**(d)** Detected line structures obtained using the Hough Transform.
+**(e)** Identified object corner points using Harris Corner Detection, grouped via DBSCAN clustering.
+**(f)** Placeholder icon representing the TXT file in which the corner-point pixel coordinates are stored.
+**(Optional)** Total station control with the pipeline result via GeoCOM (GeoCOM commands not included in this repository, only schematic flowchart)
 
 ---
 
@@ -79,13 +79,13 @@ project/
 
 ### **2. `Hough_Line_Transform_App.py` (Step d)**
 
-* Interactive GUI for the Progressive probabilistic Hough transform
+* Interactive GUI for the Progressive probabilistic Hough Transform
 * Tunable parameters + live preview of detected lines
 * Saves a line-only image on black background
 
 ### **3. `Harris_Corner_detection_and_DBSCAN_Clustering_App.py` (Step e)**
 
-* Harris corner detection + DBSCAN clustering
+* Harris Corner Detection + DBSCAN clustering
 * Tunable parameters + live preview of detected corner clusters
 * Saves: visual output and list of final cluster centers (clustered object corners)
 
