@@ -41,6 +41,37 @@ The pipeline consists of six main CV steps (a–f) and an optional measurement s
 
 ---
 
+## Scripts and Their Role in the Workflow
+
+### **1. [`Object_Segmentation_and_Canny_Edge_Detection_App.py`](segmentation_and_canny/Object_Segmentation_and_Canny_Edge_Detection_App.py) (Steps a–c)**
+
+* Runs YOLOv8 instance segmentation
+* Crops the detected object (in this workflow the used steel beam)
+* Opens an interactive Canny GUI with manual + automatic methods
+* Saves cropped object and edges
+
+### **2. [`Hough_Line_Transform_App.py`](hough_transform/Hough_Line_Transform_App.py) (Step d)**
+
+* Interactive GUI for the Progressive probabilistic Hough Transform
+* Tunable parameters + live preview of detected lines
+* Saves a line-only image on black background
+
+### **3. [`Harris_Corner_detection_and_DBSCAN_Clustering_App.py`](harris_corner_detection/Harris_Corner_detection_and_DBSCAN_Clustering_App.py) (Step e)**
+
+* Harris Corner Detection + DBSCAN clustering
+* Tunable parameters + live preview of detected corner clusters
+* Saves: visual output and list of final cluster centers (clustered object corners)
+
+### **4. [`main_total_station_control.py`](total_station_control/main_total_station_control.py)**
+
+
+* Central script intended to **control a total station** during the automated measurement workflow
+* Sequentially triggers all three CV modules (segmentation → Hough → Harris) and integrates their outputs into the measurement loop
+* **All GeoCOM commands removed**; placeholders indicate where users must insert their own device-specific total-station control
+* Preserves the original architecture so the full pipeline can be rebuilt on Leica instruments or adapted to other manufacturers
+
+---
+
 ## Repository Structure
 
 ```text
@@ -65,37 +96,6 @@ project/
 └── total_station_control/
     └── main_total_station_control.py                              # (d) Structure for total-station workflow (GeoCOM removed)
 ```
-
----
-
-## Scripts and Their Role in the Workflow
-
-### **1. [`Object_Segmentation_and_Canny_Edge_Detection_App.py`](segmentation_and_canny/Object_Segmentation_and_Canny_Edge_Detection_App.py) (Steps a–c)**
-
-* Runs YOLOv8 instance segmentation
-* Crops the detected object (in this workflow the used steel beam)
-* Opens an interactive Canny GUI with manual + automatic methods
-* Saves cropped object and edges
-
-### **2. [`Hough_Line_Transform_App.py`](hough_transform/Hough_Line_Transform_App.py) (Step d)**
-
-* Interactive GUI for the Progressive probabilistic Hough Transform
-* Tunable parameters + live preview of detected lines
-* Saves a line-only image on black background
-
-### **3. [`Harris_Corner_detection_and_DBSCAN_Clustering_App.py`](harris_corner_detection/Harris_Corner_detection_and_DBSCAN_Clustering_APP.py) (Step e)**
-
-* Harris Corner Detection + DBSCAN clustering
-* Tunable parameters + live preview of detected corner clusters
-* Saves: visual output and list of final cluster centers (clustered object corners)
-
-### **4. [`main_total_station_control.py`](total_station_control/main_total_station_control.py)**
-
-
-* Central script intended to **control a total station** during the automated measurement workflow
-* Sequentially triggers all three CV modules (segmentation → Hough → Harris) and integrates their outputs into the measurement loop
-* **All GeoCOM commands removed**; placeholders indicate where users must insert their own device-specific total-station control
-* Preserves the original architecture so the full pipeline can be rebuilt on Leica instruments or adapted to other manufacturers
 
 ---
 
