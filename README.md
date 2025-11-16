@@ -1,7 +1,7 @@
 # Automated Object Measurement with a Total Station Using Instance Segmentation
 *(Geodata Technology M.Eng. Thesis Project — THWS, 2025)*
 
-[![Video ansehen](https://img.youtube.com/vi/xHrBriSdfJM/0.jpg)](https://www.youtube.com/watch?v=xHrBriSdfJM)
+[![Video Thumbnail](assets/yt_video_thumbnail.jpg)](https://www.youtube.com/watch?v=xHrBriSdfJM)
 
 ---
 
