@@ -54,13 +54,13 @@ project/
 │   └── total_station_workflow_.jpg
 │
 ├── segmentation_and_canny/
-│   └── Object_Segmentation_and_Canny_Edge_Detection_App.py        # (a)-(c) YOLOv8 segmentation + interactive Canny
+│   └── Object_Segmentation_and_Canny_Edge_Detection_App.py        # (a)-(c) YOLOv8 (Large) segmentation + Canny
 │
 ├── hough_transform/
-│   └── Hough_Line_Transform_App.py                                # (d) Progressive probabilistic Hough transform
+│   └── Hough_Line_Transform_App.py                                # (d) Progressive probabilistic Hough Transform
 │
 ├── harris_corner_detection/
-│   └── Harris_Corner_detection_and_DBSCAN_Clustering_App.py       # (e) Harris + DBSCAN corner clustering
+│   └── Harris_Corner_detection_and_DBSCAN_Clustering_App.py       # (e) Harris Corner Detection + DBSCAN corner clustering
 │
 └── total_station_control/
     └── main_total_station_control.py                              # (d) Structure for total-station workflow (GeoCOM removed)
